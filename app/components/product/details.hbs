@@ -14,4 +14,19 @@
     <del class='small text-black-50'>$199.95</del>
     <i class='text-danger fw-bold'>$99.98</i>
   </section>
+
+  <div>
+    <h5>Color</h5>
+    <div class='product-colors active-{{@color}}'>
+      {{! template-lint-disable no-invalid-interactive }}
+      <span
+        class='product-color color-red'
+        {{on 'click' (fn @onChangeColor 'red')}}
+      ></span>
+      <span
+        class='product-color color-black'
+        {{on 'click' (fn @onChangeColor 'black')}}
+      ></span>
+    </div>
+  </div>
 </div>
