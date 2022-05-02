@@ -1,8 +1,11 @@
 {{page-title 'Item'}}
 
 <GeneralContainer>
-  <div class='product item-details-page'>
-    <Product::Image @src={{this.productImage}} />
+  <div class='product item-details-page {{if this.isZoomed "is-zoomed"}}'>
+    <Product::Image
+      @src={{this.productImage}}
+      @toggleZoom={{this.toggleZoom}}
+    />
     <Product::Details
       @isDetail={{true}}
       @name={{this.model.name}}
