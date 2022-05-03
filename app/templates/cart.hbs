@@ -14,8 +14,21 @@
   </ol>
 
   {{#each this.cart.itemList as |item|}}
-    <div class='d-flex align-items-center'>
-      <h4>{{item.name}}</h4>
+    <div class='cart-item d-flex align-items-center'>
+      <div class='cart-item-thumbnail'>
+        <img src={{item.image}} alt='product-image' />
+      </div>
+      <div class='ms-3'>
+        <h4>{{item.name}}</h4>
+        <i class='fw-bold'>{{currency item.price}}</i>
+      </div>
+      {{! template-lint-disable require-input-label }}
+      <input
+        type='number'
+        class='ms-auto'
+        value={{item.count}}
+        {{on 'input' (fn this.updateItemCount item)}}
+      />
     </div>
   {{/each}}
 
